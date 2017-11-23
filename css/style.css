@@ -5,7 +5,7 @@ body {
   padding: 0;
   margin: 0;
 
-  background-image: url("../images/bg-temple.jpg");
+  background-image: url("../images/bg-town.png");
   background-repeat:no-repeat;
   background-attachment:fixed; 
   background-size: cover;
@@ -215,10 +215,12 @@ div.container{
 
 
 div.mainboardgame{
-  margin-top: 100px;
+  margin-top: 10px;
   border-radius: 5px;
   width: auto;
-  background-color: blue;
+  background-color: black;
+  margin-left: 2px;
+  opacity: 0.9;
 }
 
 div.boardgame{
@@ -227,12 +229,12 @@ div.boardgame{
   position: right; 
   width: 950px; 
   height: 500px; 
-  background-color: black;
+  background-color: #d9d9d9;
 }
 
 div.maingamelog{
   background-color: black;
-  margin-top: 100px;
+  margin-top: 10px;
   margin-left: 5px;
   width: auto;
   border-radius: 10px;
@@ -256,4 +258,223 @@ div.gamelog-title{
 
 h3.panel-title{
   text-align: center;
+}
+
+div.banner-container{
+  width: 1365px;
+   height: 100px;
+}
+
+img.ninja-gold-banner{
+  width: 800px; 
+  height: 100px; 
+  margin-left: 300px;
+}
+
+img.cave-loc{
+  width: 270px;
+  height: 170px;
+  border-radius: 10px;
+  margin-left: 350px;
+  margin-top: 30px;
+}
+
+img.house-loc{
+  width: 270px;
+  height: 170px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+img.goldmine-loc{
+  width: 270px;
+  height: 170px;
+  border-radius: 10px;
+  margin-left: 350px;
+  margin-top: 30px;
+}
+
+img.casino-loc{
+  width: 270px;
+  height: 220px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: 30px;
+
+}
+
+button.btnhome{
+  width: 100px;
+  font-family: century gothic;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #e57024;
+  color: black;
+  float: left;
+}
+
+button.btnreset{
+  width: 100px;
+  font-family: century gothic;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #e57024;
+  color: black;
+  float: right;
+  margin-right: 10px;
+}
+
+
+input.attempts{
+  width: 200px;
+  border-radius: 5px;
+  margin-left: 150px;
+  text-align: center;
+  border-color: black;
+}
+
+label.attempts{
+  margin-left: 215px;
+  color: red;
+  margin-top: 5px;
+}
+
+input.gold{
+  width: 200px;
+  border-radius: 5px;
+  margin-left: 100px;
+  text-align: center;
+  border-color: black;
+}
+
+label.gold{
+  margin-left: 180px;
+  color: #cc7a00;
+  margin-top: 5px;
+}
+
+input.total-gains{
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 10px;
+  text-align: center;
+  border-color: black;
+}
+
+label.total-gains{
+  margin-left: 30px;
+  color: red;
+  margin-top: 5px;
+}
+
+div.total-gains{
+  width: 140px;
+  margin-top: 10px;
+}
+
+input.total-losses{
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 10px;
+  text-align: center;
+  border-color: black;
+}
+label.total-losses{
+  margin-left: 30px;
+  color: red;
+  margin-top: 5px;
+}
+
+div.total-losses{
+  width: 140px;
+  margin-top: 10px;
+}
+
+div.gamelog-nav-container{
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+div.gamelog-tab-content{
+  margin-top: 10px;
+}
+
+img.ninjako{
+  height: 170px;
+  width: 200px; 
+  position: absolute; 
+  margin-right: 1000px; 
+  margin-top: 100px; 
+  margin-left: -650px;
+}
+
+button.btncave{
+  width: 150px;
+  height: 60px;
+  border-top-left-radius: 100px;
+  font-family: century gothic;
+  background-color: #ff9900;
+  position: absolute; 
+  margin-right: 1000px; 
+  margin-top: 330px; 
+  margin-left: -730px;
+  color: black;
+  font-weight: bold;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+button.btnhouse{
+  width: 150px;
+  height: 60px;
+  border-top-right-radius: 100px;
+  font-family: century gothic;
+  background-color: #ff9900;
+  position: absolute; 
+  margin-right: 1000px; 
+  margin-top: 330px; 
+  margin-left: -575px;
+  color: black;
+  font-weight: bold;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+button.btnmine{
+  width: 150px;
+  height: 60px;
+  border-bottom-left-radius: 100px;
+  font-family: century gothic;
+  background-color: #ff9900;
+  position: absolute; 
+  margin-right: 1000px; 
+  margin-top: 400px; 
+  margin-left: -730px;
+  color: black;
+  font-weight: bold;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+button.btncasino{
+  width: 150px;
+  height: 60px;
+  border-bottom-right-radius: 100px;
+  font-family: century gothic;
+  background-color: #ff9900;
+  position: absolute; 
+  margin-right: 1000px; 
+  margin-top: 400px; 
+  margin-left: -575px;
+  color: black;
+  font-weight: bold;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+button:hover {
+    background-color: #FFFFFF;
+    color: black;
+    font-family: century gothic;
 }
