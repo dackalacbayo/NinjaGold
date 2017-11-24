@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Ninja Gold</title>
+  
+  		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="Frameworks/Bootstrap 3.3.7/css/bootstrap.min.css" type="text/css" />
+		<script src="Frameworks/JQuery 3.1.1/jquery.min.js"></script>
+		<script src="Frameworks/Bootstrap 3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+</div>
+	<div class="banner-container">
+		<img class="ninja-gold-banner" src="images/ninja-gold-banner.png" alt="Avatar" class="avatar" >
+	</div>
+
+
+
+	<div class="mainboardgame col-md-8">
+		<div class="boardgame" >
+				<a href="index.html"><button type="button" class="btnhome btn"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</button></a>	
+
+			<div class = "col-xs-4">
+				<label class="attempts">ATTEMPTS</label>
+				<input  id = "attempts" class="attempts form-control" value = 20 disabled> 
+			</div>
+
+			<div class = "col-xs-4">
+				<label class="gold">GOLD</label>
+				<input  id = "gold" class="gold form-control" value = 0 readonly=""> 
+			</div>
+
+			<div>
+				<a href="ninja-gold.html"><button type="button" class="btnreset btn"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Reset</button></a><br>
+			</div>
+						
+			<div class="ninjako">
+				<img class="ninjako" id="ninjako" src = "images/ninjako.gif" style = "">
+			</div>
+
+			<div class="buttons-loc">
+				<button type="button" class="btncave btn" id="btncave" onClick=move_img('cave')> CAVE</button>
+				<button type="button" class="btnhouse btn" id="btnhouse" onClick=move_img('house')> HOUSE</button>
+				<button type="button" class="btnmine btn" id="btnmine" onClick=move_img('mine')> MINE</button>
+				<button type="button" class="btncasino btn" id="btncasino" onClick=move_img('casino')> CASINO</button>
+			</div>
+
+			<div id = "container" >
+				<img class="cave-loc" src="images/cave.png" alt="Avatar" class="avatar" >
+				<img class="house-loc" src="images/house.png" alt="Avatar" class="avatar" ><br>
+				<img class="goldmine-loc" src="images/goldmine.png" alt="Avatar" class="avatar" >
+				<img class="casino-loc" src="images/casino.png" alt="Avatar" class="avatar" >
+			</div>
+		</div>
+	</div>
+
+							
+	<div class="maingamelog col-md-4">
+		<div class="gamelog" >
+			<div  class="gamelog-title list-group-item">
+				<h3 class="panel-title"><b> GAME LOG</b></h3>
+					<div class = "total-gains col-xs-4">
+						<label class="total-gains">TOTAL GAINS</label>
+						<input  id = "total-gains" class="total-gains form-control" value = 0 disabled> 
+					</div>
+
+					<div class = "total-losses col-xs-4">
+						<label class="total-losses">TOTAL LOSSES</label>
+						<input  id = "total-losses" class="total-losses form-control" value = 0 readonly> 
+					</div>
+			 </div><br><br><br>
+
+			<div class="gamelog-container">
+			 	<div class="gamelog-nav-container">
+				  <ul class="nav nav-tabs">
+				    <li class="active"><a data-toggle="tab" href="#all">ALL</a></li>
+				    <li style="float:left"><a data-toggle="tab" href="#wins">WINS</a></li>
+				    <li><a data-toggle="tab" href="#losses">LOSSES</a></li>
+				  </ul>
+
+			  <div class="gamelogtab tab-content">
+				    <div id="all" class="tab-pane fade in active"  ></div>
+					<div id="wins" class="tab-pane fade "></div>
+					<div id="losses" class="tab-pane fade "></div>
+			  </div>
+			</div>
+		</div>
+	</div>								
+</div></div>
+
+	
+<script language='JavaScript' type='text/JavaScript'>
+
+				var attempts = 20;
+				var gold = 0;
+				var gains  = [0];
+				var losses = [0];
+				var events = [];
+				var click =  -1;
+
+				var chance = 0;
+				var totolgained = 0;
+				var totalloss = 0;
+
+				var count = 10;
+				var startingnum = 1;
+
+
+				function move_img(locations) {
+
+				switch(locations){
+					case "cave":
+						document.getElementById('ninjako').style.left=1000 + "px";
+						document.getElementById('ninjako').style.top=30 + "px";
+						gold+=5;	
+						gains.push(5);
+						$('#gold').css({ 'background-color': '#47d147','color':'white'});
+						$('#gold').val(gold);
+						events.push({location:'Cave',time:new Date().toLocaleString(), golds:5});
+						click += 1;
+						gamelog();
+
+							--attempts;	
+							$('#attempts').val(attempts);
+							if(attempts==0){
+								finish();
+							}
+
+						totalgained = gains.reduce(getTotalgained);
+						$('#total-gains').val(totalgained);
+						status();
+					break;
+
+
+				case "house":
+					document.getElementById('ninjako').style.left=1300 + "px";
+					document.getElementById('ninjako').style.top=30 + "px";
+
+						chance = Math.floor((Math.random() * count) + startingnum);
+							if (chance>2){
+								gold+=10;
+								gains.push(10);
+
+								$('#gold').css({ 'background-color': '#47d147','color':'white'});
+								$('#gold').val(gold);
+								events.push({location:'House', time:new Date().toLocaleString(), golds:10});
+								click += 1;
+								gamelog();
+									totalgained = gains.reduce(getTotalgained);
+									$('#total-gains').val(totalgained);
+							}else{
+									$('#gold').css({ 'background-color': '#000000','color':'white'});
+									events.push({location:'Cave', time: new Date().toLocaleString(), golds:0});
+									click += 1;
+									gamelog();
+								}
+									--attempts;	
+									$('#attempts').val(attempts);
+
+									if(attempts==0){
+										finish();}
+							status();
+				break;
+
+				case "mine":
+					document.getElementById('ninjako').style.left=1000 + "px";
+					document.getElementById('ninjako').style.top=250 + "px";
+							chance = Math.floor((Math.random() * count) + startingnum);
+							goldearn = Math.floor((Math.random() * 25) + 1);
+
+							if (chance>2){
+								gold+=goldearn;
+								gains.push(goldearn);
+
+								$('#gold').val(gold);
+								$('#gold').css({ 'background-color': '#47d147','color':'white'});
+								events.push({location:'Gold Mine', time: new Date().toLocaleString(), golds:goldearn});
+								click += 1;
+								gamelog();
+
+								totalgained = gains.reduce(getTotalgained);
+								$('#total-gains').val(totalgained);
+							}else{
+								$('#gold').css({ 'background-color': '#000000','color':'white'});
+								events.push({location:'Gold Mine', time: new Date().toLocaleString(), golds:0});
+								click += 1;
+								gamelog();
+								}
+
+							--attempts;	
+							$('#attempts').val(attempts);
+
+							if(attempts==0){
+								finish();
+							}
+							status();
+				break;	
+
+				case "casino":
+					document.getElementById('ninjako').style.top=250 + "px";
+					document.getElementById('ninjako').style.left=1300 + "px";
+						chance = Math.floor((Math.random() * count) + startingnum);
+						goldearn =  Math.floor( Math.random() * ( 51 - 40 ) + 40) ;
+						if (chance>5){
+							gold+=goldearn;
+							gains.push(goldearn);
+							$('#gold').val(gold);
+							$('#gold').css({ 'background-color': '#47d147','color':'white'});
+							
+							events.push({location:'Casino', time: new Date().toLocaleString(), golds:goldearn});
+							click += 1;
+							gamelog();
+
+							totalgained = gains.reduce(getTotalgained);
+							$('#total-gains').val(totalgained);
+
+						}else{
+							gold-=goldearn;
+							losses.push(goldearn);
+
+							$('#gold').val(gold);
+							$('#gold').css({ 'background-color': 'red','color':'black'});
+							
+							events.push({location:'Casino', time: new Date().toLocaleString(), golds:-goldearn});
+							click += 1;
+							gamelog();
+								var totalloss =losses.reduce(getTotalgained);
+								$('#total-losses').val(totalloss);
+							}
+
+							--attempts;	
+							$('#attempts').val(attempts);
+
+							if(attempts==0){
+								finish();
+							}
+						status();
+				break;
+		}}
+
+
+				function getTotalgained(totalgold, num) {
+					return totalgold + num;
+				}
+
+
+				function disablebuttons(){
+					$('#btncave').attr('disabled',true);
+					$('#btnhouse').attr('disabled',true);
+					$('#btnmine').attr('disabled',true);
+					$('#btncasino').attr('disabled',true);
+				}
+
+				function status(){
+					if(gold>=250 && attempts>0){
+						alert('Congratulations! You Won.');
+						disablebuttons();
+					}
+				}
+
+				function finish(){
+					if(gold>=250){
+						alert('Congratulations! You Won.');
+					}
+					else{
+						alert('Opppss! Sorry You Lose!');
+					    if (confirm("Do you want to try again? Press OK button.") == true) {
+					   	 window.location.href='ninja-gold.html';
+					    } 
+					}
+						disablebuttons();
+					}
+
+
+				function gamelog(){
+					if(events[click]['golds']>0){
+						$("#all").append("<p class = 'win'> Location : "+events[click]['location']+"<br> Time: "+events[click]['time']+"<br> Golds: "+events[click]['golds']+"</p>");	
+						$("#wins").append("<p class = 'win' style='text-align:left; float:left;'> Location : "+events[click]['location']+"<br> Time: "+events[click]['time']+"<br> Golds: "+events[click]['golds']+"</p>");	
+					}
+					else if(events[click]['golds']<0){
+						$("#all").append("<p class = 'lose'> Location : "+events[click]['location']+"<br> Time: "+events[click]['time']+"<br> Golds: "+events[click]['golds']+"</p>");		
+						$("#losses").append("<p class = 'lose' > Location : "+events[click]['location']+"<br> Time: "+events[click]['time']+"<br> Golds: "+events[click]['golds']+"</p>");		
+					}
+					else{
+						$("#all").append("<p class = 'nogolds'> Location : "+events[click]['location']+"<br> Time: "+events[click]['time']+"<br> Golds: "+events[click]['golds']+"</p>");		
+					}
+
+				}
+				
+</script>
+
+
+</html>

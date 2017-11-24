@@ -113,7 +113,7 @@ span.psw {
 }
 .button-row > div {
   position: relative;
-  width: 160px;
+  width: 220px;
   height: 50px;
   margin: 0 15px;
   -webkit-perspective: 1000px;
@@ -126,6 +126,8 @@ span.psw {
   width: 100%;
   height: 100%;
   position: absolute;
+  
+  border-radius: 40px;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
@@ -219,7 +221,7 @@ div.mainboardgame{
   border-radius: 5px;
   width: auto;
   background-color: black;
-  margin-left: 2px;
+  margin-left: 4px;
   opacity: 0.9;
 }
 
@@ -229,7 +231,7 @@ div.boardgame{
   position: right; 
   width: 950px; 
   height: 500px; 
-  background-color: #d9d9d9;
+  background-color: #fff;
 }
 
 div.maingamelog{
@@ -248,7 +250,14 @@ div.gamelog{
   width: 330px; 
   height: 500px; 
   background-color: white;
+}
 
+div.gamelog-container{
+  border-color: black; 
+  width: 310px; 
+  height:380px; 
+  margin-top: 5px; 
+  margin-left: 10px;
 }
 
 div.gamelog-title{
@@ -312,6 +321,7 @@ button.btnhome{
   background-color: #e57024;
   color: black;
   float: left;
+  border-radius: 40px;
 }
 
 button.btnreset{
@@ -323,15 +333,26 @@ button.btnreset{
   color: black;
   float: right;
   margin-right: 10px;
+  border-radius: 40px;  
+}
+
+.btnplay{
+  background-color: transparent; 
+  border:none; 
+  cursor:pointer; 
+  font-size:16px; 
+  color: white;
+  width: 200px; 
+  border-radius: 50px; 
+  height: 30px;
 }
 
 
 input.attempts{
   width: 200px;
-  border-radius: 5px;
+  border-radius: 40px;
   margin-left: 150px;
   text-align: center;
-  border-color: black;
 }
 
 label.attempts{
@@ -342,10 +363,9 @@ label.attempts{
 
 input.gold{
   width: 200px;
-  border-radius: 5px;
+  border-radius: 40px;
   margin-left: 100px;
   text-align: center;
-  border-color: black;
 }
 
 label.gold{
@@ -356,10 +376,10 @@ label.gold{
 
 input.total-gains{
   width: 100px;
-  border-radius: 5px;
+  border-radius: 40px;
   margin-left: 10px;
   text-align: center;
-  border-color: black;
+  border-color: #a6a6a6;
 }
 
 label.total-gains{
@@ -375,10 +395,10 @@ div.total-gains{
 
 input.total-losses{
   width: 100px;
-  border-radius: 5px;
+  border-radius: 40px;
   margin-left: 10px;
   text-align: center;
-  border-color: black;
+  border-color: #a6a6a6;
 }
 label.total-losses{
   margin-left: 30px;
@@ -398,30 +418,33 @@ div.gamelog-nav-container{
   margin-left: 5px;
   margin-right: 5px;
   font-weight: bold;
+
 }
 
-div.gamelog-tab-content{
+div.gamelogtab{
   margin-top: 10px;
+  overflow: auto;
+  height: 300px;
 }
 
 img.ninjako{
-  height: 170px;
-  width: 200px; 
+  height: 220px;
+  width: 210px; 
   position: absolute; 
   margin-right: 1000px; 
-  margin-top: 100px; 
+  margin-top: 50px; 
   margin-left: -650px;
 }
 
 button.btncave{
   width: 150px;
-  height: 60px;
+  height: 80px;
   border-top-left-radius: 100px;
   font-family: century gothic;
   background-color: #ff9900;
   position: absolute; 
   margin-right: 1000px; 
-  margin-top: 330px; 
+  margin-top: 300px; 
   margin-left: -730px;
   color: black;
   font-weight: bold;
@@ -430,13 +453,13 @@ button.btncave{
 
 button.btnhouse{
   width: 150px;
-  height: 60px;
+  height: 80px;
   border-top-right-radius: 100px;
   font-family: century gothic;
   background-color: #ff9900;
   position: absolute; 
   margin-right: 1000px; 
-  margin-top: 330px; 
+  margin-top: 300px; 
   margin-left: -575px;
   color: black;
   font-weight: bold;
@@ -445,13 +468,13 @@ button.btnhouse{
 
 button.btnmine{
   width: 150px;
-  height: 60px;
+  height: 80px;
   border-bottom-left-radius: 100px;
   font-family: century gothic;
   background-color: #ff9900;
   position: absolute; 
   margin-right: 1000px; 
-  margin-top: 400px; 
+  margin-top: 390px; 
   margin-left: -730px;
   color: black;
   font-weight: bold;
@@ -460,13 +483,13 @@ button.btnmine{
 
 button.btncasino{
   width: 150px;
-  height: 60px;
+  height: 80px;
   border-bottom-right-radius: 100px;
   font-family: century gothic;
   background-color: #ff9900;
   position: absolute; 
   margin-right: 1000px; 
-  margin-top: 400px; 
+  margin-top: 390px; 
   margin-left: -575px;
   color: black;
   font-weight: bold;
@@ -477,4 +500,95 @@ button:hover {
     background-color: #FFFFFF;
     color: black;
     font-family: century gothic;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+p.win{
+  text-align:left; 
+  float:left; 
+  color: green;
+}
+
+p.lose{
+  text-align:left; 
+  float:left; 
+  color: red;
+}
+
+p.nogolds{
+  text-align:left; 
+  float:left; 
+  color: black;
+}
+
+
+:root {
+    --bg: #3C465C;
+    --primary: #78FFCD;
+    --solid: #fff;
+    --btn-w: 10em;
+    --dot-w: calc(var(--btn-w)*.2);
+    --tr-X: calc(var(--btn-w) - var(--dot-w));
+}
+* {box-sizing: border-box;}
+*:before, *:after {box-sizing: border-box;}
+
+div.play{
+  margin-left: 260px;
+}
+
+.btn {
+    position: relative;
+    margin: 0 auto;
+    width: var(--btn-w);
+    color: var(--primary);
+    border: .15em solid var(--primary);
+    border-radius: 5em;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.3em;
+    line-height: 2em;
+    cursor: pointer;   
+    margin-left: 260px; 
+}
+.dot {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: var(--dot-w);
+    height: 100%;
+    border-radius: 100%;
+    transition: all 300ms ease;
+    display: none;
+}
+.dot:after {
+    content: '';
+    position: absolute;
+    left: calc(50% - .4em);
+    top: -.4em;
+    height: .8em;
+    width: .8em;
+    background: var(--primary);
+    border-radius: 1em;
+    border: .25em solid var(--solid);
+    box-shadow: 0 0 .7em var(--solid),
+                0 0 2em var(--primary);
+}
+.btn:hover .dot,
+.btn:focus .dot {
+    animation: atom 2s infinite linear;
+    display: block;
+}
+@keyframes atom {
+    0% {transform: translateX(0) rotate(0);}
+    30%{transform: translateX(var(--tr-X)) rotate(0);}
+    50% {transform: translateX(var(--tr-X)) rotate(180deg);}
+    80% {transform: translateX(0) rotate(180deg);}
+    100% {transform: translateX(0) rotate(360deg);}
+}
+
+div.about{
+  margin-right: -300px; 
+  margin-left: 100px;
 }
